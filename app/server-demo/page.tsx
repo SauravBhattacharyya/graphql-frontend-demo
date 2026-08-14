@@ -3,13 +3,14 @@ import { CountryPanel } from "@/components/country-panel";
 import { getCountryFetchBody, type Country } from "@/lib/queries/get-country";
 
 export default async function ServerDemoPage() {
+  console.time("ServerDemoPage fetch");
   const res = await fetch(process.env.NEXT_PUBLIC_GRAPHQL_URL!, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(getCountryFetchBody("IN")),
     // cache: "no-store",
   });
-
+  console.timeEnd("ServerDemoPage fetch");
   const { data } = await res.json();
   const country = data.country as Country;
 
