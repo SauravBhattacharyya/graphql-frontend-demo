@@ -2,15 +2,19 @@ import { gql, type TypedDocumentNode } from "@apollo/client";
 import { print } from "graphql";
 
 export type Country = {
-  name: string;
-  native: string;
-  code: string;
-  capital: string;
-  currency: string;
-  phone: string;
-  continent: { name: string; code: string };
-  languages: { name: string; native: string; code: string }[];
-  states: { name: string }[];
+  name?: string | null;
+  native?: string | null;
+  code?: string | null;
+  capital?: string | null;
+  currency?: string | null;
+  phone?: string | null;
+  continent?: { name?: string | null; code?: string | null } | null;
+  languages?: {
+    name?: string | null;
+    native?: string | null;
+    code?: string | null;
+  }[] | null;
+  states?: { name?: string | null }[] | null;
 };
 
 export type GetCountryData = {
