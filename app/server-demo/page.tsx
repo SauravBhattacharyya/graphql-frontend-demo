@@ -1,16 +1,13 @@
 import Link from "next/link";
 import { CountryPanel } from "@/components/country-panel";
-import {
-  getCountryFetchBody,
-  type Country,
-} from "@/lib/queries/get-country";
+import { getCountryFetchBody, type Country } from "@/lib/queries/get-country";
 
 export default async function ServerDemoPage() {
   const res = await fetch(process.env.NEXT_PUBLIC_GRAPHQL_URL!, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(getCountryFetchBody("IN")),
-    // cache: "no-store", // uncomment live to demo cache behavior
+    // cache: "no-store",
   });
 
   const { data } = await res.json();

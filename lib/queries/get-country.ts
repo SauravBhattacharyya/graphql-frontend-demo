@@ -9,11 +9,13 @@ export type Country = {
   currency?: string | null;
   phone?: string | null;
   continent?: { name?: string | null; code?: string | null } | null;
-  languages?: {
-    name?: string | null;
-    native?: string | null;
-    code?: string | null;
-  }[] | null;
+  languages?:
+    | {
+        name?: string | null;
+        native?: string | null;
+        code?: string | null;
+      }[]
+    | null;
   states?: { name?: string | null }[] | null;
 };
 
